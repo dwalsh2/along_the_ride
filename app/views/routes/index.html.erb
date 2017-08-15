@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Routes
+    <a href="/routes/new" class="btn btn-lg btn-success">New Route</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Starting latitude</th>
+        <th>Starting longitude</th>
+        <th>Ending latitude</th>
+        <th>Ending longitude</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.user_id %></td>
+        <td><%= route.starting_latitude %></td>
+        <td><%= route.starting_longitude %></td>
+        <td><%= route.ending_latitude %></td>
+        <td><%= route.ending_longitude %></td>
+        <td>
+          <a href="/routes/<%= route.id %>" class="btn btn-primary">Show</a>
+          <a href="/routes/<%= route.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_route/<%= route.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
