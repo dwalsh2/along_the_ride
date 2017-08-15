@@ -16,6 +16,7 @@ class RoutesController < ApplicationController
   end
 
   def show
+    @waypoint = Waypoint.new
     @route = Route.find(params[:id])
 
     render("routes/show.html.erb")

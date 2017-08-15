@@ -6,6 +6,7 @@ class WaypointsController < ApplicationController
   end
 
   def show
+    @business = Business.new
     @waypoint = Waypoint.find(params[:id])
 
     render("waypoints/show.html.erb")

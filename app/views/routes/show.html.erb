@@ -65,6 +65,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_waypoint" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for business_id -->
+      <div class="form-group">
+        <label for="business_id" class="control-label">
+          Business
+        </label>
+
+        <input type="text" id="business_id" name="business_id" placeholder="Business" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for latitude -->
+      <div class="form-group">
+        <label for="latitude" class="control-label">
+          Latitude
+        </label>
+
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for longitude -->
+      <div class="form-group">
+        <label for="longitude" class="control-label">
+          Longitude
+        </label>
+
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for route_id -->
+      <input type="hidden" name="route_id" value="<%= @route.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Waypoint
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
