@@ -1,0 +1,1 @@
+{"name":"Along the ride","repository":"https://github.com/dwalsh2/along_the_ride","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
