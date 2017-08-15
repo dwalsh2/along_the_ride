@@ -1,6 +1,6 @@
 class WaypointsController < ApplicationController
   def index
-    @waypoints = Waypoint.all
+    @waypoints = Waypoint.page(params[:page]).per(10)
 
     render("waypoints/index.html.erb")
   end
