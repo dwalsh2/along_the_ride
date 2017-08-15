@@ -51,7 +51,7 @@
           Route
         </label>
 
-        <input type="text" id="route_id" name="route_id" placeholder="Route" class="form-control" value="<%= @waypoint.route_id %>">
+        <%= select_tag(:route_id, options_from_collection_for_select(Route.all, :id, :created_at, @waypoint.route_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
