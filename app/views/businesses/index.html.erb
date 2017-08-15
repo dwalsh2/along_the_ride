@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>
+    Businesses
+    <a href="/businesses/new" class="btn btn-lg btn-success">New Business</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Waypoint</th>
+        <th>Name</th>
+        <th>Image url</th>
+        <th>Url</th>
+        <th>Phone</th>
+        <th>Rating</th>
+        <th>Location</th>
+        <th>Yelp api return</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @businesses.each do |business| %>
+      <tr>
+        <td><%= business.waypoint_id %></td>
+        <td><%= business.name %></td>
+        <td><%= business.image_url %></td>
+        <td><%= business.url %></td>
+        <td><%= business.phone %></td>
+        <td><%= business.rating %></td>
+        <td><%= business.location %></td>
+        <td><%= business.yelp_api_return %></td>
+        <td>
+          <a href="/businesses/<%= business.id %>" class="btn btn-primary">Show</a>
+          <a href="/businesses/<%= business.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_business/<%= business.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
