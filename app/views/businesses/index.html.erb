@@ -22,7 +22,13 @@
 
       <% @businesses.each do |business| %>
       <tr>
-        <td><%= business.waypoint.business_id %></td>
+        <td>
+          <% if business.waypoint.present? %>
+            <a href="/waypoints/<%= business.waypoint.id %>">
+              <%= business.waypoint.business_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= business.name %></td>
         <td><%= business.image_url %></td>
         <td><%= business.url %></td>

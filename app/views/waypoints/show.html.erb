@@ -15,7 +15,13 @@
       <dd><%= @waypoint.longitude %></dd>
 
       <dt>Route</dt>
-      <dd><%= @waypoint.route_id %></dd>
+      <dd>
+        <% if @waypoint.route.present? %>
+          <a href="/routes/<%= @waypoint.route_id %>">
+            <%= @waypoint.route.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

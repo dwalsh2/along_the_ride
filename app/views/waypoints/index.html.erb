@@ -21,7 +21,13 @@
         <td><%= waypoint.business_id %></td>
         <td><%= waypoint.latitude %></td>
         <td><%= waypoint.longitude %></td>
-        <td><%= waypoint.route.created_at %></td>
+        <td>
+          <% if waypoint.route.present? %>
+            <a href="/routes/<%= waypoint.route.id %>">
+              <%= waypoint.route.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/waypoints/<%= waypoint.id %>" class="btn btn-primary">Show</a>
           <a href="/waypoints/<%= waypoint.id %>/edit" class="btn btn-warning">Edit</a>

@@ -19,7 +19,13 @@
 
       <% @routes.each do |route| %>
       <tr>
-        <td><%= route.user.email %></td>
+        <td>
+          <% if route.user.present? %>
+            <a href="/users/<%= route.user.id %>">
+              <%= route.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= route.starting_latitude %></td>
         <td><%= route.starting_longitude %></td>
         <td><%= route.ending_latitude %></td>

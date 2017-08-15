@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @route.user_id %></dd>
+      <dd>
+        <% if @route.user.present? %>
+          <a href="/users/<%= @route.user_id %>">
+            <%= @route.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Starting latitude</dt>
       <dd><%= @route.starting_latitude %></dd>
