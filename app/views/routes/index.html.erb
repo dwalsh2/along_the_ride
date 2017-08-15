@@ -19,7 +19,7 @@
 
       <% @routes.each do |route| %>
       <tr>
-        <td><%= route.user_id %></td>
+        <td><%= route.user.email %></td>
         <td><%= route.starting_latitude %></td>
         <td><%= route.starting_longitude %></td>
         <td><%= route.ending_latitude %></td>
