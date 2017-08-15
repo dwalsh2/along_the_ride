@@ -1,5 +1,7 @@
 ActiveAdmin.register Route do
 
+ permit_params :user_id, :starting_latitude, :starting_longitude, :ending_latitude, :ending_longitude
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
