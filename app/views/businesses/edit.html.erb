@@ -24,7 +24,7 @@
           Waypoint
         </label>
 
-        <input type="text" id="waypoint_id" name="waypoint_id" placeholder="Waypoint" class="form-control" value="<%= @business.waypoint_id %>">
+        <%= select_tag(:waypoint_id, options_from_collection_for_select(Waypoint.all, :id, :business_id, @business.waypoint_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for name -->
