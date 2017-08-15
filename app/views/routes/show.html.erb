@@ -26,12 +26,14 @@
       <a href="/routes" class="btn btn-primary">
         Back
       </a>
-      <a href="/routes/<%= @route.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_route/<%= @route.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @route.user %>
+        <a href="/routes/<%= @route.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_route/<%= @route.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

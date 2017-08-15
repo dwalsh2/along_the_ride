@@ -1,4 +1,14 @@
 class RoutesController < ApplicationController
+  before_action :current_user_must_be_route_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_route_user
+    route = Route.find(params[:id])
+
+    unless current_user == route.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @routes = Route.all
 
