@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "routes#index"
   # Routes for the Waypoint resource:
   # CREATE
   get "/waypoints/new", :controller => "waypoints", :action => "new"
