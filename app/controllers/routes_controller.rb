@@ -10,7 +10,7 @@ class RoutesController < ApplicationController
   end
 
   def index
-    @routes = Route.all
+    @routes = current_user.routes.page(params[:page]).per(10)
 
     render("routes/index.html.erb")
   end
