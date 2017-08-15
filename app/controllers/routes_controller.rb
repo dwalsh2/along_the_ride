@@ -50,8 +50,6 @@ class RoutesController < ApplicationController
 
   def update
     @route = Route.find(params[:id])
-
-    @route.user_id = params[:user_id]
     @route.starting_latitude = params[:starting_latitude]
     @route.starting_longitude = params[:starting_longitude]
     @route.ending_latitude = params[:ending_latitude]
