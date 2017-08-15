@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Waypoint resource:
+  # CREATE
+  get "/waypoints/new", :controller => "waypoints", :action => "new"
+  post "/create_waypoint", :controller => "waypoints", :action => "create"
+
+  # READ
+  get "/waypoints", :controller => "waypoints", :action => "index"
+  get "/waypoints/:id", :controller => "waypoints", :action => "show"
+
+  # UPDATE
+  get "/waypoints/:id/edit", :controller => "waypoints", :action => "edit"
+  post "/update_waypoint/:id", :controller => "waypoints", :action => "update"
+
+  # DELETE
+  get "/delete_waypoint/:id", :controller => "waypoints", :action => "destroy"
+  #------------------------------
+
   # Routes for the Business resource:
   # CREATE
   get "/businesses/new", :controller => "businesses", :action => "new"

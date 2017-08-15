@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @waypoint.errors.any? %>
+  <% @waypoint.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Waypoint #<%= @waypoint.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_waypoint/<%= @waypoint.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for business_id -->
+      <div class="form-group">
+        <label for="business_id" class="control-label">
+          Business
+        </label>
+
+        <input type="text" id="business_id" name="business_id" placeholder="Business" class="form-control" value="<%= @waypoint.business_id %>">
+      </div>
+
+      <!-- Label and input for latitude -->
+      <div class="form-group">
+        <label for="latitude" class="control-label">
+          Latitude
+        </label>
+
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @waypoint.latitude %>">
+      </div>
+
+      <!-- Label and input for longitude -->
+      <div class="form-group">
+        <label for="longitude" class="control-label">
+          Longitude
+        </label>
+
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @waypoint.longitude %>">
+      </div>
+
+      <!-- Label and input for route_id -->
+      <div class="form-group">
+        <label for="route_id" class="control-label">
+          Route
+        </label>
+
+        <input type="text" id="route_id" name="route_id" placeholder="Route" class="form-control" value="<%= @waypoint.route_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Waypoint
+      </button>
+      or
+      <a href="/waypoints/<%= @waypoint.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
