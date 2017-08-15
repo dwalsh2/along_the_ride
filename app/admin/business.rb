@@ -1,5 +1,7 @@
 ActiveAdmin.register Business do
 
+ permit_params :waypoint_id, :name, :image_url, :url, :phone, :rating, :location, :yelp_api_return
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
