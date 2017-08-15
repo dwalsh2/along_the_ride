@@ -3,6 +3,161 @@
     Waypoints
     <a href="/waypoints/new" class="btn btn-lg btn-success">New Waypoint</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "waypoints_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+  <%= f.label :business_id, "Business" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :business_id_gteq, :class => "form-control", :placeholder => "Business greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :business_id_lteq, :class => "form-control", :placeholder => "Business less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :longitude_cont, "Longitude contains" %>
+    <%= f.text_field :longitude_cont, :class => "form-control", :placeholder => "Longitude contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :latitude_cont, "Latitude contains" %>
+    <%= f.text_field :latitude_cont, :class => "form-control", :placeholder => "Latitude contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "Route Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='routegteqcreated_atPicker'>
+                  <%= f.text_field :route_created_at_gteq, :class => "form-control", :placeholder => "Route Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='routelteqcreated_atPicker'>
+                  <%= f.text_field :route_created_at_lteq, :class => "form-control", :placeholder => "Route Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#routegteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routelteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#routegteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#routelteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#routegteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Business Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='businessesgteqcreated_atPicker'>
+                  <%= f.text_field :businesses_created_at_gteq, :class => "form-control", :placeholder => "Business Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='businesseslteqcreated_atPicker'>
+                  <%= f.text_field :businesses_created_at_lteq, :class => "form-control", :placeholder => "Business Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#businessesgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#businesseslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#businessesgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#businesseslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#businesseslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#businessesgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/waypoints" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#waypoints_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

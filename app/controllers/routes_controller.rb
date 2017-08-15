@@ -10,7 +10,8 @@ class RoutesController < ApplicationController
   end
 
   def index
-    @routes = current_user.routes.page(params[:page]).per(10)
+    @q = current_user.routes.ransack(params[:q])
+      @routes = @q.result(:distinct => true).includes(:user, :waypoints).page(params[:page]).per(10)
 
     render("routes/index.html.erb")
   end

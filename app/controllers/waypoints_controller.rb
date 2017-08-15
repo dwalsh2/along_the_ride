@@ -1,6 +1,7 @@
 class WaypointsController < ApplicationController
   def index
-    @waypoints = Waypoint.page(params[:page]).per(10)
+    @q = Waypoint.ransack(params[:q])
+    @waypoints = @q.result(:distinct => true).includes(:route, :businesses).page(params[:page]).per(10)
 
     render("waypoints/index.html.erb")
   end

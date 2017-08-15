@@ -3,6 +3,106 @@
     Businesses
     <a href="/businesses/new" class="btn btn-lg btn-success">New Business</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "businesses_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :yelp_api_return_cont, "Yelp api return contains" %>
+    <%= f.text_field :yelp_api_return_cont, :class => "form-control", :placeholder => "Yelp api return contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :location_cont, "Location contains" %>
+    <%= f.text_field :location_cont, :class => "form-control", :placeholder => "Location contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_cont, "Rating contains" %>
+    <%= f.text_field :rating_cont, :class => "form-control", :placeholder => "Rating contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :phone_cont, "Phone contains" %>
+    <%= f.text_field :phone_cont, :class => "form-control", :placeholder => "Phone contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :url_cont, "Url contains" %>
+    <%= f.text_field :url_cont, :class => "form-control", :placeholder => "Url contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :image_url_cont, "Image url contains" %>
+    <%= f.text_field :image_url_cont, :class => "form-control", :placeholder => "Image url contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+  <%= f.label :business_id, "Waypoint Business" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :waypoint_business_id_gteq, :class => "form-control", :placeholder => "Waypoint Business greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :waypoint_business_id_lteq, :class => "form-control", :placeholder => "Waypoint Business less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/businesses" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#businesses_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
